@@ -1,4 +1,24 @@
-1. [Bootstrap cluster](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/) using Argo CD app of apps pattern
+1. Install Argo CD using Helm:
+
+```
+helm install argo-cd charts/argo-cd/
+```
+
+default credentials:
+
+The default username is `admin`. The initial admin secret can be found:
+
+```
+kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
+
+Port-forward the argocd api server:
+
+```
+kubectl port-forward svc/argo-cd-argocd-server 8080:443
+```
+
+2. [Bootstrap cluster](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/) using Argo CD app of apps pattern
 
 ```
 apps
@@ -12,7 +32,7 @@ apps
 
 The [templates](app/templates) folder contains one file for each child app. Adding new app files to this folder will automatically create and sync the child app.
 
-2. Sync parent app:
+3. Sync parent app:
 
 ```bash
 argocd app create apps \
