@@ -1859,6 +1859,10 @@ prometheus:
   # must be a string so you have to add a | after extraScrapeConfigs:
   # example adds prometheus-blackbox-exporter scrape config
   extraScrapeConfigs:
+    - job_name: 'argocd'
+      static_configs:
+        - targets:
+          - https://argo-cd-argocd-application-controller.argocd.svc.cluster.local:8082
     # - job_name: 'prometheus-blackbox-exporter'
     #   metrics_path: /probe
     #   params:
