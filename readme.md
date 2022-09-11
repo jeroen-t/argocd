@@ -18,6 +18,12 @@ Port-forward the argocd api server:
 kubectl -n argocd port-forward svc/argo-cd-argocd-server 8080:443
 ```
 
+Login to argocd through cli:
+
+```
+argocd login localhost:8080
+```
+
 2. [Bootstrap cluster](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/) using Argo CD app of apps pattern
 
 ```
@@ -38,7 +44,7 @@ The [templates](app/templates) folder contains one file for each child app. Addi
 argocd app create apps \
     --dest-namespace argocd \
     --dest-server https://kubernetes.default.svc \
-    --repo https://github.com/argoproj/argocd-example-apps.git \
+    --repo https://github.com/jeroen-t/argocd.git \
     --path apps  
 argocd app sync apps
 ```
