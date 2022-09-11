@@ -2,8 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: apps
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     namespace: argocd
@@ -17,3 +15,4 @@ spec:
     automated:
       prune: true
       selfHeal: true
+      allowEmpty: true
