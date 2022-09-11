@@ -1,7 +1,7 @@
 1. Install Argo CD using Helm:
 
 ```
-helm install argo-cd charts/argo-cd/
+helm install argo-cd charts/argo-cd/ --namespace argocd --create-namespace
 ```
 
 default credentials:
@@ -9,13 +9,13 @@ default credentials:
 The default username is `admin`. The initial admin secret can be found:
 
 ```
-kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
 Port-forward the argocd api server:
 
 ```
-kubectl port-forward svc/argo-cd-argocd-server 8080:443
+kubectl -n argocd port-forward svc/argo-cd-argocd-server 8080:443
 ```
 
 2. [Bootstrap cluster](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/) using Argo CD app of apps pattern
