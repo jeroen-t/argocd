@@ -1862,7 +1862,7 @@ prometheus:
     - job_name: 'argocd'
       static_configs:
         - targets:
-          - https://argo-cd-argocd-application-controller.argocd.svc.cluster.local:8082
+          - http://argo-cd-argocd-application-controller.argocd.svc.cluster.local:8082
     # - job_name: 'prometheus-blackbox-exporter'
     #   metrics_path: /probe
     #   params:

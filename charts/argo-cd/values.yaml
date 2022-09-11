@@ -1058,7 +1058,7 @@ argocd:
     ## Server metrics service configuration
     metrics:
       # -- Deploy metrics service
-      enabled: true
+      enabled: false
       service:
         # -- Metrics service annotations
         annotations: {}
