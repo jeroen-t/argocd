@@ -727,7 +727,10 @@ jenkins:
     # Timeout in seconds for an agent to be online
     connectTimeout: 100
     # Annotations to apply to the pod.
-    annotations: {}
+    annotations:
+      prometheus.io/scrape: "true"
+      prometheus.io/path: /prometheus/
+      prometheus.io/port: "8080"
 
     # Add additional containers to the agents.
     # Containers specified here are added to all agents. Set key empty to remove container from additional agents.
