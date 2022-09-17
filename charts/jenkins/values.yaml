@@ -521,7 +521,7 @@ jenkins:
       # Additional labels to add to the ServiceMonitor object
       serviceMonitorAdditionalLabels: {}
       # Set a custom namespace where to deploy ServiceMonitor resource
-      # serviceMonitorNamespace: monitoring
+      serviceMonitorNamespace: monitoring
       scrapeInterval: 60s
       # This is the default endpoint used by the prometheus plugin
       scrapeEndpoint: /prometheus
@@ -532,7 +532,7 @@ jenkins:
       # The `groups` root object is added by default, simply add the rule entries
       alertingrules: []
       # Set a custom namespace where to deploy PrometheusRule resource
-      prometheusRuleNamespace: ""
+      prometheusRuleNamespace: "monitoring"
 
     googlePodMonitor:
       # If enabled, It creates Google Managed Prometheus scraping config
