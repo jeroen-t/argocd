@@ -3,11 +3,11 @@ envName: dev
 default:
   app:
     destination:
-      namespace: test
+      namespace: dev
       server: https://kubernetes.default.svc
     project: infra
     source:
-      targetRevision: test
+      targetRevision: HEAD
 
 
 applications: []

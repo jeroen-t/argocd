@@ -31,6 +31,10 @@ default:
       path: null
       repoURL: null
       targetRevision: HEAD
+      extraSourceFields: |
+        helm:
+          valueFiles:
+          - values-{{ $.Values.envName }}.yaml
 
       #Examples of how you might use extraSourceFields. depending on if you're using Helm or Kustomize for your apps
       #
@@ -63,7 +67,17 @@ projects: []
   #   sourceRepos:
   #   - https://MY_INFRA_REPOSITORY/identity/*
 
-applications: []
+applications:
+  argocd-apps:
+    enabled: true
+    destination:
+      namespace: argocd
+      server: "https://kubernetes.default.svc"
+    project: default
+    source:
+      path: apps
+      repoURL: https://github.com/jeroen-t/argocd.git
+
   # k8s-service-accounts:
   #   enabled: false
   #   destination:
