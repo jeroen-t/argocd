@@ -28,23 +28,24 @@ argocd login localhost:8080
 
 ```
 apps
-├── Chart.yaml
 ├── templates
-│   ├── apps.yaml
-│   ├── argo-cd.yaml
-│   └── grafana.yaml
+│   ├── applications.yaml
+│   └── projects.yaml
+├── Chart.yaml
+├── values-dev.yaml
+├── values-prd.yaml
+├── values-stg.yaml
 └── values.yaml
 ```
 
-The [templates](app/templates) folder contains one file for each child app. Adding new app files to this folder will automatically create and sync the child app.
-
-3. Sync parent app:
+3. Sync parent app using environment file (see last arg):
 
 ```bash
 argocd app create apps \
     --dest-namespace argocd \
     --dest-server https://kubernetes.default.svc \
     --repo https://github.com/jeroen-t/argocd.git \
-    --path apps  
+    --path apps \
+    --values values-dev.yaml
 argocd app sync apps
 ```
