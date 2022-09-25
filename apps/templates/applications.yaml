@@ -23,6 +23,8 @@ spec:
   syncPolicy:
     automated:
       prune: {{ $val.autoSyncPrune | default $.Values.default.app.autoSyncPrune | default true }}
+    syncOptions:
+      - CreateNamespace=true
 {{- end }}
   source:
     path: {{ tpl $val.source.path $ }}
