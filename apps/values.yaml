@@ -85,7 +85,7 @@ applications:
       repoURL: https://github.com/jeroen-t/argocd.git
   
   grafana:
-    enable: true
+    enabled: true
     destination:
       namespace: monitoring
     source:
