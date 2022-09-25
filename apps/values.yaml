@@ -83,6 +83,14 @@ applications:
     source:
       path: charts/prometheus
       repoURL: https://github.com/jeroen-t/argocd.git
+  
+  grafana:
+    enable: true
+    destination:
+      namespace: monitoring
+    source:
+      path: charts/grafana
+      repoURL: https://github.com/jeroen-t/argocd.git
 
 
   # k8s-service-accounts:
