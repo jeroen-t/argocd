@@ -25,8 +25,8 @@ default:
     autoSyncPrune: true
     destination:
       namespace: null
-      server: null
-    project: null
+      server: "https://kubernetes.default.svc"
+    project: default
     source:
       path: null
       repoURL: null
@@ -72,11 +72,18 @@ applications:
     enabled: true
     destination:
       namespace: argocd
-      server: "https://kubernetes.default.svc"
-    project: default
     source:
       path: apps
       repoURL: https://github.com/jeroen-t/argocd.git
+  
+  prometheus:
+    enabled: true
+    destination:
+      namespace: monitoring
+    source:
+      path: charts/prometheus
+      repoURL: https://github.com/jeroen-t/argocd.git
+
 
   # k8s-service-accounts:
   #   enabled: false
