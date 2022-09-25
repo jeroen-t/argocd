@@ -21,7 +21,7 @@ default:
       # - namespace: {{ $.Values.default.app.destination.namespace | required "Missing proj dest namespace"}}
       #   server: {{ $.Values.default.app.destination.server | required "Missing proj dest server" }}
   app:
-    enableAutoSync: null
+    enableAutoSync: true
     autoSyncPrune: true
     destination:
       namespace: null
