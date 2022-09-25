@@ -13,6 +13,7 @@ default:
 applications:
   argocd-apps:
     enabled: true
+    enableAutoSync: true
     
   # k8s-service-accounts:
   #   enabled: true
