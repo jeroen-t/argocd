@@ -10,7 +10,10 @@ default:
       targetRevision: HEAD
 
 
-applications: []
+applications:
+  argocd-apps:
+    enabled: true
+    
   # k8s-service-accounts:
   #   enabled: true
   #   enableAutoSync: true
