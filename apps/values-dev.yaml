@@ -14,6 +14,11 @@ applications:
   argocd-apps:
     enabled: true
 
+  guestbook:
+    source:
+      extraSourceFields: |
+        kustomize:
+          namePrefix: 'dev'
   # k8s-service-accounts:
   #   enabled: true
   #   enableAutoSync: true
