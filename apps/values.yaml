@@ -91,6 +91,14 @@ applications:
     source:
       path: charts/grafana
       repoURL: https://github.com/jeroen-t/argocd.git
+  
+  guestbook:
+    enabled: true
+    destination:
+      namespace: guestbook
+    source:
+      path: kustomize-guestbook
+      repoURL: https://github.com/argoproj/argocd-example-apps.git
 
 
   # k8s-service-accounts:
