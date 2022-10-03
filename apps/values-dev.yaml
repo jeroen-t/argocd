@@ -18,7 +18,7 @@ applications:
     source:
       extraSourceFields: |
         kustomize:
-          namePrefix: 'dev'
+          namePrefix: 'dev-'
   # k8s-service-accounts:
   #   enabled: true
   #   enableAutoSync: true
