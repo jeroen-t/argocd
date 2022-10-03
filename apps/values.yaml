@@ -99,7 +99,9 @@ applications:
     source:
       path: kustomize-guestbook
       repoURL: https://github.com/argoproj/argocd-example-apps.git
-      extraSourceFields: ''
+      extraSourceFields: |
+        kustomize:
+          namePrefix: ''
 
 
   # k8s-service-accounts:
